@@ -58,24 +58,27 @@ class OrmController extends Controller
     //多对多
     public function roleUsers()
     {
-        //获取用户id=2的 所有角色信息
-        $roles = \Modules\Demo\Models\User::find(2)->roles;
+        //获取用户id=1的 所有角色信息
+        $roles = \Modules\Demo\Models\User::find(1)->roles;
 
         //获取角色id 为 1和2 的所有用户信息
-        // \Modules\Demo\Models\Role::with('users')->find([1, 2]);
+        // $roles = \Modules\Demo\Models\Role::with('users')->find([1, 2]);
+        // dd($roles);
 
         //获取中间表字段
         foreach ($roles as $role) {
             echo $role->pivot->user_id . PHP_EOL;
             echo $role->pivot->created_at . PHP_EOL;
         }
+        dd($roles);
     }
 
     //远程一对一
     public function authorFamousBooks()
     {
-        // $famousBooks = \Modules\Demo\Models\Top::find(2)->authorFamousBooks;
-        $famousBooks = \Modules\Demo\Models\Top::with('authorFamousBooks')->get();
+        //获取top排行榜中 排行第二 的作者 的出名代表作   【出名代表作  每个作者只有一个】
+        $famousBooks = \Modules\Demo\Models\Top::find(2)->authorFamousBooks;
+        // $famousBooks = \Modules\Demo\Models\Top::with('authorFamousBooks')->get();
         dd($famousBooks);
 
     }

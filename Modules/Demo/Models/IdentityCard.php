@@ -10,8 +10,8 @@ class IdentityCard extends Model
     protected $table = 'identity_cards';
 
     public function user(){
-        // return $this->belongsTo('Modules\Demo\Models\User', 'user_id', 'id');
-        return $this->belongsTo('Modules\Demo\Models\User', 'user_id', 'other_id');
+        return $this->belongsTo('Modules\Demo\Models\User', 'user_id', 'id');
+        // return $this->belongsTo('Modules\Demo\Models\User', 'user_id', 'other_id');
     }
 
 }

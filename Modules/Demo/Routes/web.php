@@ -48,5 +48,9 @@ Route::domain('demo.' . env('APP_DOMAIN'))->group(function () {
     Route::group(['prefix' => 'query'], function () {
         Route::get('getList', 'QueryController@getList');//http://demo.lpt.kf/query/getList
     });
+
+    Route::group(['prefix' => 'quote'], function () {
+        Route::get('foreach', 'QuoteController@foreach');//http://demo.lpt.kf/quote/foreach
+    });
     
 });

@@ -23,11 +23,11 @@ Route::domain('demo.' . env('APP_DOMAIN'))->group(function () {
     });
 
     Route::group(['prefix' => 'property'], function () {
-        Route::get('yield/{is_yield}', 'PropertyController@yield');//http://demo.lpt.kf/property/yield
+        Route::get('yield/{is_yield}', 'PropertyController@yield');//http://demo.lpt.kf/property/yield/0
     });
 
     Route::group(['prefix' => 'property'], function () {
-        Route::get('multiYield', 'PropertyController@multiYield');
+        Route::get('multiYield', 'PropertyController@multiYield');//http://demo.lpt.kf/property/multiYield
     });
 
     Route::group(['prefix' => 'orm'], function () {
